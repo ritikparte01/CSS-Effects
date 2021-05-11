@@ -1,0 +1,330 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Overlock SCs;
+}
+.section1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(79, 48, 255);
+    
+
+}
+.container4{
+    position: relative;
+    top: 50px;
+}
+.cup{
+    position: relative;
+    width: 280px;
+    height: 300px;
+    background: linear-gradient(to right, #f9f9f9, #d9d9d9);
+    border-bottom-left-radius: 45%;
+    border-bottom-right-radius: 45%;
+}
+.top{
+    position: absolute;
+    top: -30px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to right, #f9f9f9, #d9d9d9);
+    border-radius: 50%;
+}
+.circle4{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: 50px;
+    background: linear-gradient(to right, #f9f9f9, #d9d9d9);
+    border-radius: 50%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.tea{
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#d37857, #ff9f7c);
+    border-radius: 50%;
+}
+.handle{
+    position: absolute;
+    right: -70px;
+    top: 40px;
+    width: 160px;
+    height: 180px;
+    border: 25px solid #dcdcdc;
+    border-left: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-radius: 50%;
+    transform: rotate(42deg);
+}
+.plate{
+    position:absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 200px;
+    background: linear-gradient(to right, #f9f9f9,#e7e7e7);
+    border-radius: 50%;
+    box-sizing: 0 35px 35px rgba(0,0,0,0.2);
+}
+.plate::before{
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 50%;
+    background: linear-gradient(to left, #f9f9f9,#e7e7e7);
+}
+.plate::after{
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+   background: radial-gradient(rgba(0,0,0,0.2),25%, transparent, transparent); 
+   border-radius: 50%;
+}
+.vapour{
+    position: relative;
+    display: flex;
+    z-index: 1;
+    padding: 0 20px;
+}
+.vapour span{
+    position: relative;
+    bottom: 50px;
+    display: block;
+    margin: 0 2px 50px;
+    min-width: 8px;
+    height: 120px;
+    background: white;
+    border-radius: 50%;
+    animation: animate 5s linear infinite;
+    opacity: 0;
+    filter: blur(8px);
+    animation-delay: calc(var(--i) * -0.5s);
+}
+@keyframes animate{
+    0%{
+        transform: translateY(0) scaleX(1);
+        opacity: 0;
+    }
+    15%{
+        opacity: 1;
+    }
+    50%{
+        transform: translateY(-150px) scaleX(5);
+    }
+    95%{
+        opacity: 50;
+    }
+    100%{
+        transform: translateY(-300px) scaleX(10);
+    }
+}
+.section2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1c1c25;
+}
+.section2::before{
+    content: '';
+    position: absolute;
+    bottom: -100%;
+    left: 60%;
+    width: 700px;
+    height: 700px;
+    background: linear-gradient(#f00,#f0f);
+    border-radius: 50%;
+}
+.card{
+    position: relative;
+    width: 508px;
+    height: 315px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+.card .face{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    transform-style: preserve-3d;
+    transition: 1s;
+    backface-visibility: hidden;
+}
+
+.card:hover .face.front{
+    transform: rotateY(180deg);
+}
+.card .face.back{
+    transform: rotateY(180deg);
+}
+.card:hover .face.back{
+    transform: rotateY(360deg);
+}
+
+
+.card .face.front::before{
+    content: '';
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+.card .face.front::after{
+    content: '';
+    position: absolute;
+    bottom: 40px;
+    right: 80px;
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+.card .face.front .debit{
+ position: absolute;
+ left: 40px;
+ top: 30px;
+ color: white;
+ font-weight: 500;   
+}
+.card .face.front .bank{
+    position: absolute;
+    right: 40px;
+    top: 25px;
+    color: white;
+    font-weight: 500; 
+    font-style: italic;
+    font-size: 24px;  
+   }
+   .card .face.front .chip{
+       position: absolute;
+       top: 80px;
+       left: 50px;
+       max-width: 64px;
+   }
+
+   .card .face.front .nfc{
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    max-width: 64px;
+}
+
+   .card .face.front .number{
+    position: absolute;
+    bottom: 130px;
+    left: 40px;   
+    color: white;
+    font-weight: 500;
+    letter-spacing: 6px;
+    font-size: 18px;
+    text-shadow: 0 2px 1px #0005;
+
+   }
+   .card .face.front .valid{
+       position: absolute;
+       bottom: 90px;
+       left: 40px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       color: white;
+       font-weight: 400;
+       line-height: 1em;
+       text-align: right;
+   }
+   .card .face.front .valid span:last-child{
+       margin-left: 20px;
+       font-size: 16px;
+       font-weight: 400;
+       letter-spacing: 2px;
+   }
+   .card .face.front .name{
+       position: absolute;
+       bottom: 40px;
+       left: 40px;
+       color: white;
+       font-weight: 300;
+       font-size: 16px;
+       letter-spacing: 2px;
+   }
+   .card .face.back .blackbar{
+       position: absolute;
+       top: 40px;
+        width: 100%;
+        height: 60px;
+        background: black;
+   }
+   .card .face.back .cvvtxt{
+       position: absolute;
+       top: 120px;
+       left: 30px;
+   }
+   .card .face.back .cvvtxt h5{
+       color: white;
+       font-weight: 400;
+       font-size: 12px;
+       text-transform: uppercase;
+       letter-spacing: 2px;
+   }
+   .card .face.back .cvvtxt .whitebar{
+       position:relative;
+       width: 400px;
+       height: 40px;
+       background: white;
+       margin-top: 5px;
+   }
+   .card .face.back .cvvtxt .cvv{
+    position: relative;
+    top: -35px;
+    background: #ccc; 
+    color: black;
+    width: 50px;  
+    height: 30px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 395px;
+   }
+   .card .face.back .txt2{
+       position: absolute;
+       bottom: 30px;
+       left: 30px;
+       right: 30px;
+       color:white;
+       font-size: 11px;
+       line-height: 1.4em;
+       font-weight: 300;
+   }
+
+
+
